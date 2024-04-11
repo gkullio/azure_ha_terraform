@@ -91,3 +91,33 @@ resource "azurerm_public_ip" "mgmt_pip" {
   zones               = [element(local.azs, count.index)]
   domain_name_label   = "${var.spec[terraform.workspace]["fqdn"]}${count.index}"
 }
+#resource "azurerm_public_ip" "ext_pip" {
+#  count               = var.spec[terraform.workspace]["ltm_instance_count"]
+# depends_on          = [azurerm_resource_group.rg]
+#  name                = "ext-pip-${count.index}"
+#  location            = var.spec[terraform.workspace]["location"]
+#  resource_group_name = azurerm_resource_group.rg.name
+#  allocation_method   = "Static"
+#  sku                 = "Standard"
+#  zones               = [element(local.azs, count.index)]
+#}
+#resource "azurerm_public_ip" "vip1_pip" {
+#  depends_on          = [azurerm_resource_group.rg]
+#  name                = "vip1-pip"
+#  location            = var.spec[terraform.workspace]["location"]
+#  resource_group_name = azurerm_resource_group.rg.name
+#  allocation_method   = "Static"
+#  sku                 = "Standard"
+#  zones               = [element(local.azs)]
+#  domain_name_label   = "${var.spec[terraform.workspace]["fqdn"]}${count.index}"
+#}
+#resource "azurerm_public_ip" "vip2_pip" {
+#  depends_on          = [azurerm_resource_group.rg]
+#  name                = "vip2-pip"
+#  location            = var.spec[terraform.workspace]["location"]
+#  resource_group_name = azurerm_resource_group.rg.name
+#  allocation_method   = "Static"
+#  sku                 = "Standard"
+#  zones               = [element(local.azs)]
+#  domain_name_label   = "${var.spec[terraform.workspace]["fqdn"]}${count.index}"
+#}

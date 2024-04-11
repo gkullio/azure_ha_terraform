@@ -106,6 +106,20 @@ variable "bigip_version" {
   default     = "latest"
 }
 
+##Azure tenant ID, client ID, client secret, and subscription ID.
+variable "client_id" {
+  description = "Azure client ID"  
+}
+variable "client_secret" {
+  description = "Azure client secret"  
+}
+variable "tenant_id" {
+  description = "Azure tenant ID"  
+}
+variable "subscription_id" {
+  description = "Azure subscription ID"  
+}
+
 ## Please check and update the latest DO URL from https://github.com/F5Networks/f5-declarative-onboarding/releases
 # always point to a specific version in order to avoid inadvertent configuration inconsistency
 variable "DO_URL" {

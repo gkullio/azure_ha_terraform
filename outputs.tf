@@ -10,6 +10,7 @@ output "bigip_pip" {
 # F5 BIG-IP Password
 output "bigip_password" {
   value = random_password.bigippassword[*].result
+  sensitive = true
 }
 
 # F5 BIG-IP Hostname

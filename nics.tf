@@ -27,6 +27,7 @@ resource "azurerm_network_interface" "external" {
     name                          = "primary"
     subnet_id                     = [for i in azurerm_virtual_network.vnet.subnet : i.id if i.name == "external"][0]
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.ext_pip[count.index].id
   }
 }
 
